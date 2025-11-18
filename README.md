@@ -13,8 +13,37 @@ Clarify the definition of technical terms:
 ## Perception
 ### 1. Feature Extraction
 
+
+
 ### 2. Depth Estimation
 
 
+
 ## Evaluation
+We using the prevalent package as [evo](https://github.com/MichaelGrupp/evo) for evaluating the camera trajectory, which support for different kinds of trajectory formats such as **TUM**, **KITTI**, elaborate format information refer to [here](https://github.com/MichaelGrupp/evo/wiki/Formats).
+
+### `kitti` pose format
+Below is the pose formate of **KITTI** dataset, which has **no timestamps** so you need to be severly careful when you compare two files because the length of two poses must be the same.
+
+Each 4×4 homogeneous pose matrix is flattened into one sequence along the row direction, with each value is seperated by a space.
+
+Pose matrix looks like:
+```
+a b c d
+e f g h
+i j k l
+0 0 0 1
+```
+Flattened pose sequence looks like:
+```
+a b c d e f g h i j k l 0 0 0 1
+```
+
+### `tum` pose format
+Below is the pose formate of **TUM** RGB-D dataset. Each row has timestamp, camera position and orientation(as quaternion)  with each value is seperated by a space.
+
+Pose sequence looks like:
+```
+timestamp x y z q_x q_y q_z q_w
+```
 
