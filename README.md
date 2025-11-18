@@ -21,10 +21,10 @@ This conventional phase is consist of feature detection and matching. First, you
 | detector | ✓ | ✓ | ✓ | ✓ | – | ✓ |
 | matcher | ✓ | ✓ | ✓ | – | ✓ | ✓ |
 
-|Type|SuperPoint|SuperGlue|LoFTR|LightGlue|ELoFTR|EDM|
+|Type|SP+SG|LoFTR|LightGlue|ELoFTR|EDM|
 |------|------|------|------|------|------|------|
-| detector-based | ✓ | ✓ | ✓ | ✓ | – | ✓ |
-| detector-free | ✓ | ✓ | ✓ | – | ✓ | ✓ |
+| w. detector | ✓ | ✓ | ✓ | – | ✓ |
+| w.o. detector | ✓ | ✓ | – | ✓ | ✓ |
 
 ### 2. Depth Estimation
 
