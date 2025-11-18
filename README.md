@@ -11,9 +11,20 @@ Clarify the definition of technical terms:
 ***T_cw***(*camera-to-world*) depicts transform point in the camera coordinate system into the world coordiante system, which is used for describing the camera position in the world such as camera trajectory **evalutaion** and **visualization**.
 
 ## Perception
+There are multiple visual SLAM with different perception frontiers, such as **Monocular**, **Stereo**, **RGB-D**, **LiDAR** etc. The purpose of perception is extract the image feature, estimate the camera pose and reconstruct the 3D environment.
+
 ### 1. Feature Extraction
+This conventional phase is consist of feature detection and matching. First, you need to detect the distinct keypoint and gain the descriptor around the surrounding area of keypoint position. Then, based on the descriptor information, you need to match the keypoint between two frames wait for matching to gain the relative pose. 
 
+|Method|Harris|SIFT|SURF|FAST|BRIEF|ORB|
+|------|------|------|------|------|------|------|
+| detector | ✓ | ✓ | ✓ | ✓ | – | ✓ |
+| matcher | ✓ | ✓ | ✓ | – | ✓ | ✓ |
 
+|Type|SuperPoint|SuperGlue|LoFTR|LightGlue|ELoFTR|EDM|
+|------|------|------|------|------|------|------|
+| detector-based | ✓ | ✓ | ✓ | ✓ | – | ✓ |
+| detector-free | ✓ | ✓ | ✓ | – | ✓ | ✓ |
 
 ### 2. Depth Estimation
 
