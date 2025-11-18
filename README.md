@@ -16,15 +16,15 @@ Clarify the definition of technical terms:
 There are multiple visual SLAM with different perception frontiers, such as **Monocular**, **Stereo**, **RGB-D**, **LiDAR** etc. The purpose of perception is extract the image feature, estimate the camera pose and reconstruct the 3D environment.
 
 ### 1. Feature Extraction
-This conventional feature extraction phase is consist of feature detection and matching. First, we need to adopt the `detector` to gain the keypoint positions from image and utilize the `matcher` to generate descriptors that comprise of local information for each keypoint. Then, based on calculating the distance between two feature descriptors, we can regard the lowest distance as the highest similarity to establish the potential correspoence. Furthermore, there are still exist the inaccurate matching results among the initial matches. We can use `filter` to remove incorrect sample and deliver the final matches
+This conventional feature extraction phase is consist of feature detection and matching. First, we need to adopt the `detector` to gain the keypoint positions from image and utilize the `matcher` to generate descriptors that comprise of local information for each keypoint. Then, based on calculating the distance between two feature descriptors, we can regard the lowest distance as the highest similarity to establish the potential correspoence. Furthermore, there are still exist the inaccurate matching results among the initial matches. We can use `filter` to remove incorrect sample and deliver the final matches.
 
-|Method|Harris|SIFT|SURF|FAST|BRIEF|ORB|
+|Method|[Harris](https://www.bmva-archive.org.uk/bmvc/1988/avc-88-023.pdf)|[SIFT](https://www.cs.ubc.ca/~lsigal/425_2024W1/ijcv04.pdf)|[SURF](https://people.ee.ethz.ch/~surf/eccv06.pdf)|[FAST](https://www.edwardrosten.com/work/rosten_2006_machine.pdf)|[BRIEF](https://www.cs.ubc.ca/~lowe/525/papers/calonder_eccv10.pdf)|[ORB](https://par.cse.nsysu.edu.tw/resource/paper/2016/161129/ORB-an%20efficient%20alternative%20to%20SIFT%20or%20SURF.pdf)|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | *detector* | ✓ | ✓ | ✓ | ✓ | – | ✓ |
 | *matcher* | – | ✓ | ✓ | – | ✓ | ✓ |
 
 
-|Type|SP+SG|R2D2|LoFTR|Silk|LightGlue|ELoFTR|EDM|
+|Type|[SP](https://openaccess.thecvf.com/content_cvpr_2018_workshops/papers/w9/DeTone_SuperPoint_Self-Supervised_Interest_CVPR_2018_paper.pdf)+[SG](https://openaccess.thecvf.com/content_CVPR_2020/papers/Sarlin_SuperGlue_Learning_Feature_Matching_With_Graph_Neural_Networks_CVPR_2020_paper.pdf)|[R2D2](https://proceedings.neurips.cc/paper/2019/file/3198dfd0aef271d22f7bcddd6f12f5cb-Paper.pdf)|[LoFTR](https://openaccess.thecvf.com/content/CVPR2021/papers/Sun_LoFTR_Detector-Free_Local_Feature_Matching_With_Transformers_CVPR_2021_paper.pdf)|[Silk]()|[LightGlue](https://openaccess.thecvf.com/content/ICCV2023/papers/Lindenberger_LightGlue_Local_Feature_Matching_at_Light_Speed_ICCV_2023_paper.pdf)|[ELoFTR](https://openaccess.thecvf.com/content/CVPR2024/papers/Wang_Efficient_LoFTR_Semi-Dense_Local_Feature_Matching_with_Sparse-Like_Speed_CVPR_2024_paper.pdf)|[EDM](https://arxiv.org/pdf/2503.05122)|
 |---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | *w*. *detector* | ✓ | ✓ | – | ✓ | – | – | – |
 | *w*.*o*. *detector* | – | – | ✓ | – | ✓ | ✓ | ✓ |
