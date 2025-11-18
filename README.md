@@ -4,6 +4,8 @@ This is a tutorial for learning SLAM.
 ## Knowledge
 Clarify the definition of technical terms:
 
+***Point Cloud*** is a set of points that represents the 3D shape or object. Each point is associated with 3D position (***x, y, z***) and sometimes with additional information such as color (***R, G, B***), intensity, or normal vector.
+
 ***Camera Pose*** generally represents the camera positon and orientation relative to the world coordinate system.
 
 ***T_wc***(*world-to-camera*) indicates transform point in the world coordinate system into the camera coordiante system, which is used for projecting the world points into the camera image such as **rendering** and **reprojection**.
@@ -14,19 +16,18 @@ Clarify the definition of technical terms:
 There are multiple visual SLAM with different perception frontiers, such as **Monocular**, **Stereo**, **RGB-D**, **LiDAR** etc. The purpose of perception is extract the image feature, estimate the camera pose and reconstruct the 3D environment.
 
 ### 1. Feature Extraction
-This conventional phase is consist of feature detection and matching. First, you need to detect the distinct keypoint and gain the descriptor around the surrounding area of keypoint position. Then, based on the descriptor information, you need to match the keypoint between two frames wait for matching to gain the relative pose. 
+This conventional feature extraction phase is consist of feature detection and matching. First, we need to adopt the `detector` to gain the keypoint positions from image and utilize the `matcher` to generate descriptors that comprise of local information for each keypoint. Then, based on calculating the distance between two feature descriptors, we can regard the lowest distance as the highest similarity to establish the potential correspoence. Furthermore, there are still exist the inaccurate matching results among the initial matches. We can use `filter` to remove incorrect sample and deliver the final matches
 
 |Method|Harris|SIFT|SURF|FAST|BRIEF|ORB|
-|------|------|------|------|------|------|------|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | *detector* | ✓ | ✓ | ✓ | ✓ | – | ✓ |
-| *matcher* | ✓ | ✓ | ✓ | – | ✓ | ✓ |
+| *matcher* | – | ✓ | ✓ | – | ✓ | ✓ |
 
 
-
-|Type|SP+SG|LoFTR|LightGlue|ELoFTR|EDM|
-|------|------|------|------|------|------|
-| *w*. *detector* | ✓ | - | ✓ | – | - |
-| *w*.*o*. *detector* | - | ✓ | – | ✓ | ✓ |
+|Type|SP+SG|R2D2|LoFTR|Silk|LightGlue|ELoFTR|EDM|
+|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| *w*. *detector* | ✓ | ✓ | – | ✓ | – | – | – |
+| *w*.*o*. *detector* | – | – | ✓ | – | ✓ | ✓ | ✓ |
 
 ### 2. Depth Estimation
 
@@ -36,7 +37,7 @@ This conventional phase is consist of feature detection and matching. First, you
 We using the prevalent package as [evo](https://github.com/MichaelGrupp/evo) for evaluating the camera trajectory, which support for different kinds of trajectory formats such as **TUM**, **KITTI** etc. Elaborate format information refer to [here](https://github.com/MichaelGrupp/evo/wiki/Formats).
 
 ### `kitti` pose format
-Below is the pose format of **KITTI** dataset, which has **no timestamps** so you need to be severly careful when you compare two files because the length of two poses must be the same.
+Below is the pose format of **KITTI** dataset, which has **no timestamps** so we need to be severly careful when we compare two files because the length of two poses must be the same.
 
 Each 4×4 homogeneous pose matrix is flattened into one sequence along the row direction, with each value is seperated by a space.
 
