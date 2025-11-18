@@ -22,7 +22,7 @@ This conventional phase is consist of feature detection and matching. First, you
 | matcher | ✓ | ✓ | ✓ | – | ✓ | ✓ |
 
 |Type|SP+SG|LoFTR|LightGlue|ELoFTR|EDM|
-|------|------|------|------|------|------|------|
+|------|------|------|------|------|------|
 | w. detector | ✓ | ✓ | ✓ | – | ✓ |
 | w.o. detector | ✓ | ✓ | – | ✓ | ✓ |
 
