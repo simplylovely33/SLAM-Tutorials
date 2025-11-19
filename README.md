@@ -6,7 +6,7 @@ Clarify the definition of technical terms:
 
 ***Point Cloud*** is a set of points that represents the 3D shape or object. Each point is associated with 3D position (***x, y, z***) and sometimes with additional information such as color (***R, G, B***), intensity, or normal vector.
 
-***Camera Pose*** generally represents the camera positon and orientation relative to the world coordinate system.
+***Camera Pose*** generally represents the camera position and orientation relative to the world coordinate system.
 
 ***T_wc***(*world-to-camera*) indicates transform point in the world coordinate system into the camera coordiante system, which is used for projecting the world points into the camera image such as **rendering** and **reprojection**.
 
